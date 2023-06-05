@@ -1,0 +1,59 @@
+public class Example
+{
+    public static void main(String[] args)
+    {
+        try
+        {
+            int arr[] = new int[5];
+            arr[7] = 78;        //Exception Needed on Index Out of Bound
+            arr[4] = 40/0;      //Exception Needed on Arithmetic Issues
+        }
+        catch (ArithmeticException ex)
+        {
+            System.out.println("Arithmetic Exception occurs : "+ex.getMessage());
+        }
+        catch(ArrayIndexOutOfBoundsException ex)
+        {
+            System.out.println("Array Index Out Of Bounds Exception occurs : "+ex.getMessage());
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Exception occurs : "+ex.getMessage());
+        }
+
+        System.out.println("Rest of the Code");
+    }
+}
+
+public class Example
+{
+    public static void main(String[] args)
+    {
+        try
+        {
+            int arr[] = new int[5];
+            arr[7] = 78;                         //Here Needed Index Out of Bound Exception
+            arr[2] = 78/0;                       //Here Needed Arithmetic Exception
+            String text = null;
+            int length = text.length();          //Here Needed Index Out of Bound Exception
+            String number = "abc";
+            int value = Integer.parseInt(number);//Here Needed Number Format Exception
+            
+        }
+        catch(ArithmeticException | ArrayIndexOutOfBoundsException | NumberFormatException  ex)
+        {
+            System.out.println("Arithmetic Related Exception Occurs : "+ex.getMessage());
+        }
+
+        catch (NullPointerException ex)
+        {
+            System.out.println("Null Pointer Exception Occurs : "+ex.getMessage());
+        }
+
+        catch(Exception ex)
+        {
+            System.out.println("General Exception Occurs");
+        }
+        System.out.println("Rest of the Code");
+    }
+}
